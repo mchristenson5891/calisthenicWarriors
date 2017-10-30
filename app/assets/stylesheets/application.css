@@ -20,6 +20,9 @@
 
  header.container {
    padding-top: 1em;
+   /* background-image: url(http://oldschoolcalisthenic-404e.kxcdn.com/wp-content/uploads/2016/06/header-image-about-us-page4.jpg);
+   background-size: cover;
+   background-repeat: no-repeat; */
  }
 
 
@@ -27,6 +30,10 @@
   align-self: center;
 
  }
+
+ header:after {
+  background-color: rgba(0,0,0,0.6);
+}
 
  h1 {
   text-align: center;
@@ -99,4 +106,9 @@
 
  .user-photo {
    width: 15em;
+ }
+
+ .delete {
+   background-color: #bb6161;
+   border: 0.1rem solid #bb6161;
  }
