@@ -1,24 +1,25 @@
 
-<% @users.in_groups_of(2, false).each do |group|%>
-  <div class="row">
-  <% group.each do |user|%>
-    <div class="container">
+ <% @users.in_groups_of(2, false).each do |group|%>
     <div class="row">
-    <div class="column column-25">
-      <%= image_tag user.photo.url, class:"user-photo"%>
-      </div>
-    <div class="column">
-      <p>
-        <strong>Name:</strong>
-        <%= user.name %>
-      </p>
-      <p>
-        <strong>Email:</strong>
-        <%= user.email %>
-      </p>
-      </div>
-      </div>
+      <% group.each do |user|%>
+      <div class="column column-25">
+    <%= link_to image_tag( user.photo), user_path(user.id), class:"user-photo" %>
     </div>
-  <% end %>
+  <div class="column">
+    <p>
+      <strong>Name:</strong>
+      <%= user.name %>
+    </p>
+    <p>
+      <strong>Email:</strong>
+      <%= user.email %>
+    </p>
+    <p>
+      <strong>Description</strong>
+      <%= user.description %>
+    </p>
   </div>
-<% end%>
+      <% end %>
+    </div>
+  <% end%>
+

@@ -13,16 +13,23 @@
   <body>
     <header class="container">
       <div class="row">
-        <%= link_to image_tag( 'http://via.placeholder.com/250x150'), root_path, class:"column column-25" %>
+        <% if current_user%>
+          <%= link_to image_tag( 'http://via.placeholder.com/250x150'), user_path(current_user.id), class:"column column-25" %>
+        <% else %>
+          <%= link_to image_tag( 'http://via.placeholder.com/250x150'), root_path, class:"column column-25" %>
+        <% end %>
         <h1 class="column column-50">Calisthenic Warriors</h1>
         <nav class="column column-25 row">
           <% if current_user %>
-            Welcome, <%= current_user.name %>
-            &nbsp;&nbsp;|&nbsp;&nbsp;
+            <li>
+              Welcome, <%= current_user.name %>
+              &nbsp;&nbsp;|&nbsp;&nbsp;
+              <%= link_to 'Log Out', session_path('dummy'), method: :delete %>
+            </li>
           <% else %>
-            <%= link_to 'Log Out', session_path('dummy'), method: :delete %>
-            <% end %>
+
             <li><%= link_to 'Log In', login_path%> <%= link_to 'Sign Up', new_user_path%></li>
+          <% end %>
             <li><%= link_to 'Warriors', users_path %><%= link_to 'Locations', users_path %></li>
         </nav>
       </div>
