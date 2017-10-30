@@ -1,0 +1,102 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ /* * {
+   border: 1px solid red;
+ } */
+
+ header.container {
+   padding-top: 1em;
+ }
+
+
+ header h1 {
+  align-self: center;
+
+ }
+
+ h1 {
+  text-align: center;
+ }
+
+.row li.column {
+   display: inline;
+   justify-content: flex-end;
+ }
+
+ .row nav.column{
+   display: flex;
+   justify-content: center;
+   flex-direction: column;
+   align-items: flex-end;
+ }
+
+ nav li {
+   display: flex;
+   align-items: flex-end;
+ }
+
+ nav li a {
+  margin-left: 1em;
+ }
+ 
+ nav li:nth-child(1) {
+  font-size: .8em;
+ }
+
+
+ nav li:nth-child(2) {
+   flex: 1;
+ }
+
+ nav li:nth-child(2) a {
+   align-self: flex-end;
+ }
+
+ hr {
+  border: 1px solid gray;
+ }
+
+ .intro {
+   text-align: center;
+ }
+
+ .underline {
+  width: 35em;
+  left: 18em;
+  position: relative;
+ }
+
+ /* Sign Up Page */
+ 
+ .sign-up {
+   flex-direction: column;
+ }
+
+ .sign-up form {
+   width: 30em;
+   margin: 0 auto;
+ }
+
+ .error-messages {
+   text-align: center;
+ }
+
+ /* User Page */
+
+ .user-photo {
+   width: 15em;
+ }
