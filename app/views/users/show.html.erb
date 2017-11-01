@@ -19,6 +19,12 @@
       <strong>Description</strong>
       <%= @user.description %>
     </p>
+    <p>
+      <strong>Description</strong>
+      <% @user.places.each do |p|%>
+        <h1><%= p.id %></h1>
+      <% end %>
+    </p>
   </div>
 
 </div>

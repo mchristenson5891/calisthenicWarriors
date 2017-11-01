@@ -1,0 +1,38 @@
+<script type="text/javascript">
+$(function() {
+    new Maplace({
+        locations: [{lat: <%= @place.latitude %> , lon: <%=@place.longitude%>, zoom:18}],
+        controls_on_map: false
+    }).Load();
+});
+</script>
+
+
+<h1><%= @place.name %></h1>
+<div class="row">
+  <div class="column column-50">
+  <%= image_tag @place.photo %>
+  </div>
+  <div class="column column-25">
+      <p>
+        <strong>Name:</strong>
+        <%= @place.name %>
+      </p>
+      <p>
+        <strong>Address:</strong>
+        <%= @place.location %>
+      </p>
+      <p>
+        <strong>Equipment</strong>
+        <%= @place.equipment %>
+      </p>
+      <% if current_user && !@place.users.exists?(current_user.id)%>
+        <%= link_to "Add To My Loctaions", add_ul_path(@place.id), method: "post",  class:"button" %>
+      <% end %>
+    </div>
+    <div id="gmap" class="column column-25"></div>
+  </div>
+</div>
+
+
+

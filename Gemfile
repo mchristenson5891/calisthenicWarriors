@@ -36,6 +36,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem "aws-sdk", "~> 2"
 gem "paperclip", "~> 5.0.0"
 gem "figaro"
+gem 'geocoder'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

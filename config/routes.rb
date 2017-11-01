@@ -5,8 +5,9 @@ Rails.application.routes.draw do
   root "welcome#index"
 
   resources :users
-
+  resources :places
   resources :sessions, only: [:new, :create, :destroy]
-
   get '/login', to: 'sessions#new'
+  post '/add-ul/:id', to: 'places#add', as: 'add_ul'
+
 end

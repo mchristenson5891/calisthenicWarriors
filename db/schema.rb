@@ -10,10 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171027174328) do
+ActiveRecord::Schema.define(version: 20171101153926) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "places", force: :cascade do |t|
+    t.string "name"
+    t.string "location"
+    t.string "photo_file_name"
+    t.string "photo_content_type"
+    t.integer "photo_file_size"
+    t.datetime "photo_updated_at"
+    t.string "equipment"
+    t.bigint "users_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.float "latitude"
+    t.float "longitude"
+    t.index ["users_id"], name: "index_places_on_users_id"
+  end
+
+  create_table "places_users", id: false, force: :cascade do |t|
+    t.integer "place_id"
+    t.integer "user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
@@ -26,6 +47,10 @@ ActiveRecord::Schema.define(version: 20171027174328) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "places_id"
+    t.index ["places_id"], name: "index_users_on_places_id"
   end
 
+  add_foreign_key "places", "users", column: "users_id"
+  add_foreign_key "users", "places", column: "places_id"
 end
