@@ -1,11 +1,4 @@
-<script type="text/javascript">
-$(function() {
-    new Maplace({
-        locations: [{lat: <%= @place.latitude %> , lon: <%=@place.longitude%>, zoom:18}],
-        controls_on_map: false
-    }).Load();
-});
-</script>
+    <script src="https://maps.google.com/maps/api/js?sensor=false&libraries=geometry&v=3.22&key=AIzaSyA0rk9ow7iUSicnbIQdPvAjjJHHhB2nq_Q"></script>
 
 
 <h1><%= @place.name %></h1>
@@ -28,11 +21,28 @@ $(function() {
       </p>
       <% if current_user && !@place.users.exists?(current_user.id)%>
         <%= link_to "Add To My Loctaions", add_ul_path(@place.id), method: "post",  class:"button" %>
+        
+      <% elsif current_user %>
+        <%= link_to "Remove From My Locations", place_path(@place.id), method:"delete", class:"button delete"%>
+      <% end %>
+      <%= link_to "Edit Location", edit_place_path(@place.id), class:"button"%>
+      <% if current_user && !Like.exists?(user_id: current_user.id,place_id: @place.id)%>
+        <%= link_to "Like", new_like_path(id: @place.id), class:"button" %>
+      <% else %>
+        <%= link_to "Unlike", like_path(current_user.id), method: "delete", class:"button delete"%>
       <% end %>
     </div>
     <div id="gmap" class="column column-25"></div>
   </div>
 </div>
 
-
+<script type="text/javascript">
+$(function() {
+    new Maplace({
+        locations: [{lat: <%= @place.latitude %> , lon: <%=@place.longitude%>, zoom:15}],
+        controls_on_map: false
+    }).Load()
+});
+</script>
+    <script src="https://maplacejs.com/dist/maplace.min.js" defer></script>
 

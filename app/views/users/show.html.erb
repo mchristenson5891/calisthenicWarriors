@@ -4,6 +4,7 @@
       <% if current_user && current_user.id.eql?(@user.id) %>
         <%= link_to 'Update', edit_user_path(@user.id), class:"button" %>
         <%= link_to 'Delete', user_path(@user.id), method: "delete", class:"button delete", data: {confirm: "Are you sure?"} %>
+        <%= link_to "Likes", likes_path, class:"button"%>
       <% end %>
     </div>
   <div class="column">
@@ -19,14 +20,26 @@
       <strong>Description</strong>
       <%= @user.description %>
     </p>
-    <p>
-      <strong>Description</strong>
-      <% @user.places.each do |p|%>
-        <h1><%= p.id %></h1>
-      <% end %>
-    </p>
+    <p class="column column-10"><strong>Places</strong></p>
+    <% @user.places.in_groups_of(2, false).each do |places|%>
+      <div class="row">
+        
+            <% places.each do |p|%>
+            <div class="container column column-50">
+              <div class="row">
+                <div class="row column column-50">
+                  <%= link_to place_path(p.id) do %>
+                    <%= image_tag p.photo, class: "place-photo column" %>
+                  <% end %>
+                </div>
+                <p class="address column column-50"> <%= p.location %> </p>
+                
+              </div>
+              </div>
+            <% end %>
+      </div>
+    <% end %>
   </div>
-
 </div>
 
 

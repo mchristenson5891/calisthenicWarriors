@@ -18,11 +18,36 @@
    border: 1px solid red;
  } */
 
+ body {
+   background-color:#DCDCDD;
+ }
+
+ .main {
+   padding: 2em;
+   background-color: #8D979E;
+ }
+
+ a {
+   color:gray;
+ }
+
+ .logo {
+   width: 140px;
+   height: 150px;
+   padding-bottom: 2em;
+ }
+
+ .user-logo {
+  border-radius: 50%;
+  width: 7em;
+  height: 7em;
+ }
+
  header.container {
-   padding-top: 1em;
-   /* background-image: url(http://oldschoolcalisthenic-404e.kxcdn.com/wp-content/uploads/2016/06/header-image-about-us-page4.jpg);
-   background-size: cover;
-   background-repeat: no-repeat; */
+  padding-top: 1em;
+  background-color: white;
+  box-shadow: inset 0 -7px 9px -7px rgba(0,0,0,0.7);
+  padding-bottom: 1em;
  }
 
 
@@ -115,3 +140,29 @@
 
  /* Places */
 
+.place-photo {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  align-items: center;
+}
+
+
+.address {
+  font-size: .8em;
+}
+
+.place-container {
+  border: 1px solid gray;
+  flex: 0 0 48%;
+  height: 20em;
+  color: #EAF3F6;
+}
+
+.place-row {
+  justify-content: space-around;
+  margin-bottom: 2em;
+}
+
+.row.info {
+  flex-direction: column;
+}

@@ -1,26 +1,24 @@
 <%= link_to 'Add a Place', new_place_path, class:"button" %>
 
 
- <% @places.in_groups_of(2, false).each do |group|%>
-    <div class="row">
-      <% group.each do |place|%>
-      <div class="column column-25">
-    <%= link_to image_tag( place.photo), place_path(place.id), class:"user-photo" %>
-    </div>
-  <div class="column">
-    <p>
-      <strong>Name:</strong>
-      <%= place.name %>
-    </p>
-    <p>
-      <strong>Address:</strong>
-      <%= place.location %>
-    </p>
-    <p>
-      <strong>Description</strong>
-      <%= place.equipment %>
-    </p>
+<% @places.in_groups_of(2, false).each do |places|%>
+  <div class="row place-row">
+    <% places.each do |place| %>
+      <div class="conatiner column column-40 place-container">
+        <div class="row">
+          <%= link_to image_tag(place.photo, class:"place-photo"), place_path(place.id),class:"column column-50" %>
+          <div class="row info column column-50">
+            <p class="column column-50">
+              <strong>Address</strong>
+              <p><%=place.location %></p>
+            </p>
+            <p class="column column-50">
+              <strong>Equipment</strong>
+              <p><%=place.equipment %></p>
+            </p>
+            </div>
+        </div>
+      </div>
+    <% end%>
   </div>
-      <% end %>
-    </div>
-  <% end%>
+<% end%>

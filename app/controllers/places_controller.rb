@@ -9,6 +9,11 @@ class PlacesController < ApplicationController
     @place = Place.new
   end
 
+  def edit
+    @place = Place.find(params[:id])
+  end
+
+
   def create
     @place = Place.new(place_params)
     if @place.save
@@ -20,19 +25,28 @@ class PlacesController < ApplicationController
 
   def show
     @place = Place.find(params[:id])
+    @like = Like.new
   end
 
+
   def update
-    @user = User.find(current_user.id)
-    @user.places_id = params[:id]
-    if @user.save
-      redirect_to root_path
+    @place = Place.find(params[:id])
+    if @place.update_attributes(place_params)
+      redirect_to place_path(@place.id)
+    else
+      render :new
     end
   end
 
   def add
     @place = Place.find(params[:id])
     @place.users << current_user
+    redirect_to root_path
+  end
+
+  def destroy
+    @place = Place.find(params[:id])
+    current_user.places.delete(Place.find(params[:id]))
     redirect_to root_path
   end
 

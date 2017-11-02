@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :users
   resources :places
   resources :sessions, only: [:new, :create, :destroy]
+  resources :likes, only: [:new, :destroy, :index]
   get '/login', to: 'sessions#new'
   post '/add-ul/:id', to: 'places#add', as: 'add_ul'
 

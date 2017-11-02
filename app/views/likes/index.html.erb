@@ -1,0 +1,5 @@
+    <% @likes.each do |like| %>
+      <%= Place.find(like.place_id).name %>
+      <%= image_tag Place.find(like.place_id).photo %>
+
+    <% end %>

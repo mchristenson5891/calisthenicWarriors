@@ -4,10 +4,8 @@
     <title>CalisthenicWarriors</title>
     <%= csrf_meta_tags %>
 
-    <script src="https://maps.google.com/maps/api/js?sensor=false&libraries=geometry&v=3.22&key=AIzaSyA0rk9ow7iUSicnbIQdPvAjjJHHhB2nq_Q"></script>
+
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-    <script src="https://maplacejs.com/dist/maplace.min.js"></script>
-   
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
     <link rel="stylesheet" href="//cdn.rawgit.com/necolas/normalize.css/master/normalize.css">
     <link rel="stylesheet" href="//cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css">
@@ -18,29 +16,24 @@
   <body>
     <header class="container">
       <div class="row">
-        <% if current_user%>
-          <%= link_to image_tag( 'http://via.placeholder.com/250x150'), user_path(current_user.id), class:"column column-25" %>
-        <% else %>
-          <%= link_to image_tag( 'http://via.placeholder.com/250x150'), root_path, class:"column column-25" %>
-        <% end %>
+          <%= link_to image_tag( 'logo', class:"logo"), root_path, class:"column column-25 logo" %>
         <h1 class="column column-50">Calisthenic Warriors</h1>
         <nav class="column column-25 row">
           <% if current_user %>
             <li>
-              Welcome, <%= current_user.name %>
-              &nbsp;&nbsp;|&nbsp;&nbsp;
-              <%= link_to 'Log Out', session_path('dummy'), method: :delete %>
+              <%= link_to image_tag(current_user.photo, class:"user-logo"), user_path(current_user.id) %>
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              <%= link_to 'Log Out', session_path('dummy'), method: :delete, class:"button" %>
             </li>
           <% else %>
 
-            <li><%= link_to 'Log In', login_path%> <%= link_to 'Sign Up', new_user_path%></li>
+            <li><%= link_to 'Log In', login_path, class:"button"%> <%= link_to 'Sign Up', new_user_path, class:"button"%></li>
           <% end %>
             <li><%= link_to 'Warriors', users_path %><%= link_to 'Locations', places_path %></li>
         </nav>
       </div>
-      <hr>
     </header>
-      <div class="container">
+      <div class="container main">
       <%= yield %>
       </div>
   </body>
