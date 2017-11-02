@@ -21,11 +21,10 @@
       </p>
       <% if current_user && !@place.users.exists?(current_user.id)%>
         <%= link_to "Add To My Loctaions", add_ul_path(@place.id), method: "post",  class:"button" %>
-        
       <% elsif current_user %>
         <%= link_to "Remove From My Locations", place_path(@place.id), method:"delete", class:"button delete"%>
       <% end %>
-      <%= link_to "Edit Location", edit_place_path(@place.id), class:"button"%>
+      <%= link_to "Edit", edit_place_path(@place.id), class:"button"%>
       <% if current_user && !Like.exists?(user_id: current_user.id,place_id: @place.id)%>
         <%= link_to "Like", new_like_path(id: @place.id), class:"button" %>
       <% else %>
@@ -33,6 +32,13 @@
       <% end %>
     </div>
     <div id="gmap" class="column column-25"></div>
+  </div>
+  <strong>Likes</strong>
+  <div class="row">
+    <% @likes.each do |like|%>
+      <%= image_tag  User.find(like.user_id).photo, class:"column column-25 likes-photo"%>
+        <%= User.find(like.user_id)%>
+      <% end %>
   </div>
 </div>
 

@@ -4,8 +4,9 @@
       <% if current_user && current_user.id.eql?(@user.id) %>
         <%= link_to 'Update', edit_user_path(@user.id), class:"button" %>
         <%= link_to 'Delete', user_path(@user.id), method: "delete", class:"button delete", data: {confirm: "Are you sure?"} %>
-        <%= link_to "Likes", likes_path, class:"button"%>
+       
       <% end %>
+       <%= link_to "Likes", likes_path(id: params[:id]), class:"button"%>
     </div>
   <div class="column">
     <p>

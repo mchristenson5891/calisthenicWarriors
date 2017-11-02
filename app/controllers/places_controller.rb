@@ -25,7 +25,7 @@ class PlacesController < ApplicationController
 
   def show
     @place = Place.find(params[:id])
-    @like = Like.new
+    @likes = Like.where(place_id: params[:id])
   end
 
 

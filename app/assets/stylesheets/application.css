@@ -166,3 +166,7 @@
 .row.info {
   flex-direction: column;
 }
+
+.likes-photo {
+  height: 10em;
+}
