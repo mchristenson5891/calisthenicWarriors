@@ -1,0 +1,173 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+
+ */
+
+ /* * {
+   border: 1px solid red;
+ } */
+
+
+ body {
+   background-color:#DCDCDD;
+ }
+
+ .main {
+   padding: 2em;
+   background-color: #8D979E;
+ }
+
+ a {
+   color:gray;
+ }
+
+ .logo {
+   width: 140px;
+   height: 150px;
+   padding-bottom: 2em;
+ }
+
+ .user-logo {
+  border-radius: 50%;
+  width: 7em;
+  height: 7em;
+ }
+
+ header.container {
+  padding-top: 1em;
+  background-color: white;
+  box-shadow: inset 0 -7px 9px -7px rgba(0,0,0,0.7);
+  padding-bottom: 1em;
+ }
+
+
+ header h1 {
+  align-self: center;
+
+ }
+
+ header:after {
+  background-color: rgba(0,0,0,0.6);
+}
+
+ h1 {
+  text-align: center;
+ }
+
+.row li.column {
+   display: inline;
+   justify-content: flex-end;
+ }
+
+ .row nav.column{
+   display: flex;
+   justify-content: center;
+   flex-direction: column;
+   align-items: flex-end;
+ }
+
+ nav li {
+   display: flex;
+   align-items: flex-end;
+ }
+
+ nav li a {
+  margin-left: 1em;
+ }
+ 
+ nav li:nth-child(1) {
+  font-size: .8em;
+ }
+
+
+ nav li:nth-child(2) {
+   flex: 1;
+ }
+
+ nav li:nth-child(2) a {
+   align-self: flex-end;
+ }
+
+ hr {
+  border: 1px solid gray;
+ }
+
+ .intro {
+   text-align: center;
+ }
+
+ .underline {
+  width: 35em;
+  left: 18em;
+  position: relative;
+ }
+
+ /* Sign Up Page */
+ 
+ .sign-up {
+   flex-direction: column;
+ }
+
+ .sign-up form {
+   width: 30em;
+   margin: 0 auto;
+ }
+
+ .error-messages {
+   text-align: center;
+ }
+
+ /* User Page */
+
+ .user-photo {
+   width: 15em;
+ }
+
+ .delete {
+   background-color: #bb6161;
+   border: 0.1rem solid #bb6161;
+ }
+
+ /* Places */
+
+.place-photo {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  align-items: center;
+}
+
+
+.address {
+  font-size: .8em;
+}
+
+.place-container {
+  border: 1px solid gray;
+  flex: 0 0 48%;
+  height: 20em;
+  color: #EAF3F6;
+}
+
+.place-row {
+  justify-content: space-around;
+  margin-bottom: 2em;
+}
+
+.row.info {
+  flex-direction: column;
+}
+
+.likes-photo {
+  height: 10em;
+}
