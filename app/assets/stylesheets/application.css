@@ -154,7 +154,6 @@
 .place-container {
   border: 1px solid gray;
   flex: 0 0 48%;
-  height: 20em;
   color: #EAF3F6;
 }
 
@@ -168,5 +167,9 @@
 }
 
 .likes-photo {
-  height: 10em;
+  height: 5em;
+}
+
+.loc-info {
+  margin-bottom: 0;
 }

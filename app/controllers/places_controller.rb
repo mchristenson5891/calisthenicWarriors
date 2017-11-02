@@ -41,7 +41,7 @@ class PlacesController < ApplicationController
   def add
     @place = Place.find(params[:id])
     @place.users << current_user
-    redirect_to root_path
+    redirect_to user_path(current_user.id)
   end
 
   def destroy

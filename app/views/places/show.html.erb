@@ -1,4 +1,4 @@
-    <script src="https://maps.google.com/maps/api/js?sensor=false&libraries=geometry&v=3.22&key=AIzaSyA0rk9ow7iUSicnbIQdPvAjjJHHhB2nq_Q"></script>
+<script src="https://maps.google.com/maps/api/js?sensor=false&libraries=geometry&v=3.22&key=AIzaSyA0rk9ow7iUSicnbIQdPvAjjJHHhB2nq_Q"></script>
 
 
 <h1><%= @place.name %></h1>
@@ -27,21 +27,23 @@
       <%= link_to "Edit", edit_place_path(@place.id), class:"button"%>
       <% if current_user && !Like.exists?(user_id: current_user.id,place_id: @place.id)%>
         <%= link_to "Like", new_like_path(id: @place.id), class:"button" %>
-      <% else %>
-        <%= link_to "Unlike", like_path(current_user.id), method: "delete", class:"button delete"%>
+      <% elsif current_user%>
+        <%= link_to "Unlike", like_path(@place.id), method: "delete", class:"button delete"%>
       <% end %>
     </div>
     <div id="gmap" class="column column-25"></div>
   </div>
-  <strong>Likes</strong>
+  <strong>Liked By</strong>
+  <% @likes.in_groups_of(2, false).each do |like|%>
   <div class="row">
-    <% @likes.each do |like|%>
-      <%= image_tag  User.find(like.user_id).photo, class:"column column-25 likes-photo"%>
-        <%= User.find(like.user_id)%>
+    <% like.each do |l|%>
+      <%= image_tag  User.find(l.user_id).photo, class:"column column-10 likes-photo"%>
       <% end %>
   </div>
+  <% end %>
 </div>
 
+<script src="https://maplacejs.com/dist/maplace.min.js"></script>
 <script type="text/javascript">
 $(function() {
     new Maplace({
@@ -50,5 +52,4 @@ $(function() {
     }).Load()
 });
 </script>
-    <script src="https://maplacejs.com/dist/maplace.min.js" defer></script>
 

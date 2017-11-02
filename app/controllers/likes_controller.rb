@@ -6,18 +6,18 @@ class LikesController < ApplicationController
   
   def new
     @like = Like.create({user: current_user, place: Place.find(params[:id])})
-    @like.user = current_user
     if @like.save
-      redirect_to places_path
+      redirect_to place_path(params[:id])
     else
       render root_path
     end
   end
 
   def destroy
-    @like = Like.find_by(user_id: params[:id])
+    @like = Like.find_by(user_id: current_user.id)
+    @like.destroy
     if @like.destroy
-      redirect_to places_path
+      redirect_to place_path(params[:id])
     end
 
   end
