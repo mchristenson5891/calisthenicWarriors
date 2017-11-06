@@ -19,5 +19,5 @@ This site is about connecting like minded individuals with the tools they need t
 
 ## Unsolved problems
 
-Not responive for tablet.
+Not responsive for tablet.
 
