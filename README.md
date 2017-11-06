@@ -2,20 +2,22 @@
 
 ## Calisthenic Warriors
 
-With this app you can find parks with different training equipment. You can become and user and like and add different locations where you train.
+This site is about connecting like minded individuals with the tools they need to train like a warrior. With this site, users can create an account which would allow them to find locations with calisthenic equipment, track other warriors goals and progress and to post training sessions. The goal of Calisthenic Warriors is to motivate beginngers as well as challenge advanced warriors to bring users of all stages to the next level.
+
 
 ###  Technologies
 
 * Ruby on Rails
-* Milligram
+* Bootstrap
 * CSS
 * HTML
 * Heroku
 
-[Trello](https://trello.com/b/8mMg90TR/calisthenic-warriors)
+[My Trello Board](https://trello.com/b/8mMg90TR/calisthenic-warriors)
 
-[Here is my site](https://fast-woodland-13665.herokuapp.com/)
+[Calisthenic Warriors](https://fast-woodland-13665.herokuapp.com/)
 
-### Icebox
+## Unsolved problems
 
-Get rid of Milligram and add Bootstarp.
+Not responive for tablet.
+
